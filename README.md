@@ -7,7 +7,8 @@
 Since Meteor v1.3, testing access from a browser to the server collections,
 you will need require the module first:
 
-```var Tasks = require('./imports/api/tasks.js').Tasks
+```
+var Tasks = require('./imports/api/tasks.js').Tasks
 
 // works until autopublish is not removed
 var objectList = Tasks.find().fetch()
@@ -24,5 +25,6 @@ You may be needed in that if you have inserted tasks while did chapter 3.
 
 To run tests just invoke:
 
-```meteor test --driver-package practicalmeteor:mocha
+```
+meteor test --driver-package practicalmeteor:mocha
 ```

@@ -34,6 +34,7 @@ echo $command >> /home/vagrant/.bashrc
 
 # project
 cd /vagrant
-meteor create project
+# meteor create project
+# git clone https://github.com/titovanton/meteor-simple-todos-tutorial.git project
 cd /vagrant/project
 meteor npm install

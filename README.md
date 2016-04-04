@@ -19,3 +19,10 @@ Tasks.update(objectList[0]._id, { $set: { checked: true } });
 I also have added custom checkId function in
 [check this out](https://github.com/titovanton/meteor-simple-todos-tutorial/blob/master/project/imports/api/tasks.js#L7)
 You may be needed in that if you have inserted tasks while did chapter 3.
+
+## Chapter 11
+
+To run tests just invoke:
+
+```meteor test --driver-package practicalmeteor:mocha
+```

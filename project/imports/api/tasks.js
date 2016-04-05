@@ -1,20 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { Match } from 'meteor/check';
 
 export const Tasks = new Mongo.Collection('tasks');
-
-function checkId(id) {
-  try {
-    check(id, String);
-  } catch (e) {
-    if (e.message == "Match error: Expected string, got object") {
-      check(id._str, String);
-    } else {
-      throw e;
-    }
-  }
-}
 
 if (Meteor.isServer) {
   // This code only runs on the server
@@ -47,7 +36,7 @@ Meteor.methods({
   },
 
   'tasks.remove'(taskId) {
-    checkId(taskId);
+    check(taskId, Match.OneOf(String, { _str: String }));
 
     const task = Tasks.findOne(taskId);
     if (task.private && task.owner !== Meteor.userId()) {
@@ -59,7 +48,7 @@ Meteor.methods({
   },
 
   'tasks.setChecked'(taskId, setChecked) {
-    checkId(taskId);
+    check(taskId, Match.OneOf(String, { _str: String }));
     check(setChecked, Boolean);
 
     const task = Tasks.findOne(taskId);
@@ -72,7 +61,7 @@ Meteor.methods({
   },
 
   'tasks.setPrivate'(taskId, setToPrivate) {
-    check(taskId, String);
+    check(taskId, Match.OneOf(String, { _str: String }));
     check(setToPrivate, Boolean);
 
     const task = Tasks.findOne(taskId);

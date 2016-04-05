@@ -17,9 +17,8 @@ var objectList = Tasks.find().fetch()
 Tasks.update(objectList[0]._id, { $set: { checked: true } });
 ```
 
-I also have added custom checkId function in
-[check this out](https://github.com/titovanton/meteor-simple-todos-tutorial/blob/master/project/imports/api/tasks.js#L7)
-You may be needed in that if you have inserted tasks while did chapter 3.
+Сonsider the possibility of the existence of documents in collection with Mongo.ObjectID like IDs.
+[Check this out](https://github.com/titovanton/meteor-simple-todos-tutorial/blob/master/project/imports/api/tasks.js#L39)
 
 ## Chapter 11
 
